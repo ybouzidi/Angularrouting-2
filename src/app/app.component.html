@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- <button class="btn btn-warning" *ngIf="!isAuthenticated" (click)="onLogInClick()">LogIn</button> -->
+      <!-- <button class="btn btn-warning" *ngIf="isAuthenticated" (click)="this.authService.logout()">LogOut</button> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <app-navigation></app-navigation>
+      <!-- <hr>
+      {{timeout}} -->
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <div *ngIf="userAdded">
+            User Added Button Clicked
+          </div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<ul class="nav flex-column nav-pills">
+  <!-- <li class="nav-item" *ngIf="!isAuthenticated"><a class="nav-link" routerLink="/auth"
+      routerLinkActive="active">Authenticate</a></li> -->
+  <li class="nav-item warning" *ngIf="isAuthenticated"><a class="nav-link" routerLink="/auth"
+      routerLinkActive="active" (click)="onLogOut()">Logout</a></li>
+  <li class="nav-item" *ngIf="isAuthenticated"><a class="nav-link" routerLink="/" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact : true }">Home</a></li>
+  <li class="nav-item" *ngIf="isAuthenticated"><a class="nav-link" routerLink="/users"
+      routerLinkActive="active">Users</a></li>
+  <li class="nav-item" *ngIf="isAuthenticated"><a class="nav-link" [routerLink]="['/categories']"
+      routerLinkActive="active">Categories</a></li>
+  <li class="nav-item" *ngIf="isAuthenticated"><a class="nav-link" [routerLink]="['/templateform']"
+      routerLinkActive="active">Template form</a></li>
+  <li class="nav-item" *ngIf="isAuthenticated"><a class="nav-link" [routerLink]="['/reactiveform']"
+      routerLinkActive="active">Reactive forms</a></li>
+  <li class="nav-item" *ngIf="isAuthenticated"><a class="nav-link" [routerLink]="['/filterpipes']"
+      routerLinkActive="active">Filter pipes</a></li>
+  <li class="nav-item" *ngIf="isAuthenticated"><a class="nav-link" [routerLink]="['/posts']"
+      routerLinkActive="active">Posts</a></li>
+</ul>

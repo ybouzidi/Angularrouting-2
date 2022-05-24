@@ -1,0 +1,31 @@
+<!-- <p>users works!</p>
+
+<div>
+    <button class="btn btn-primary" (click)="onCategoriesClick()">Go to categories</button>
+</div>
+
+<a [routerLink]="['/users',1,'leela']" [queryParams]="{page:1, search : 'Leela'}" [fragment]="'loading'">Get Leela details</a> -->
+
+<ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let user of usersData">
+        <a [routerLink]="['/users',1, user]" [queryParams]="{page:1, search: user}" class="nav-link">
+            Get {{user | shorten:3}} détails
+        </a>
+    </li>
+    <!-- <li class="nav-item">
+        <a [routerLink]="['/users',2,'Kri']" [queryParams]="{page:1, search:'Kri'}" class="nav-link">Get Kri détails</a>
+    </li>
+    <li class="nav-item">
+        <a [routerLink]="['/users',3,'Leela']" [queryParams]="{page:1, search:'Leela'}" class="nav-link">Get Leela
+            détails</a>
+    </li> -->
+</ul>
+
+<div>
+    <button class="btn btn-primary" (click)="onUserAddedClick()">User added</button>
+</div>
+<div>
+    <hr>
+    <router-outlet></router-outlet>
+    <hr>
+</div>

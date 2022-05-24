@@ -1,0 +1,39 @@
+<ng-template appPlaceholder></ng-template>
+<div class="row">
+    <div class="col-md-12">
+        <!-- <div *ngIf="error" class="alert alert-danger my-4">
+            {{error}}
+            
+        </div> -->
+       <!--  <app-alert-modal [error]="error" *ngIf="error" (onClose_)="onCloseClick()"></app-alert-modal> -->
+        <div *ngIf="isLoading" class="text-center my-4">
+            <app-loading-spinner></app-loading-spinner>
+        </div>
+        <form #authForm="ngForm" (ngSubmit)="onFormSubmit(authForm,$event)" *ngIf="!isLoading">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" ngModel name="email" required email #email="ngModel">
+                <div class="help-text" *ngIf="!email.valid && email.touched">
+                    <div *ngIf="!!email.errors ? email.errors['required'] : false" class="text-danger">Email is required</div>
+                    <div *ngIf="!!email.errors ? email.errors['email'] : false" class="text-danger">Invalid email</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" ngModel name="password" required minlength="6" #password="ngModel">
+                <div class="help-text" *ngIf="!password.valid && password.touched">
+                    <div *ngIf="!!password.errors ? password.errors['required'] : false" class="text-danger">Password is required</div>
+                    <div *ngIf="!!password.errors ? password.errors['minlength'] : false" class="text-danger">Password should be of 6 chars length</div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-warning" type="submit" [disabled]="authForm.invalid">
+                    {{isLoginMode ? 'Login':'SignUP'}}
+                </button> |
+                <button class="btn btn-primary" (click)="onSwitchModel()">
+                    Switch to {{isLoginMode ? 'SignUP':'Login'}}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
